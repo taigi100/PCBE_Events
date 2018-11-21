@@ -9,6 +9,11 @@ public class News {
     private Date lastModified;
     private String author;
 
+    public News(String domain, String author) {
+        this.domain = domain;
+        this.author = author;
+    }
+
     public String getDomain() {
         return domain;
     }
