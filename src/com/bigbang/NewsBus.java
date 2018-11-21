@@ -32,4 +32,14 @@ public class NewsBus implements PublisherInterface {
     public void DeleteNews() {
 
     }
+
+    public void subscribe(ConsumerCallbackInterface subscriber) {
+        this.subscribers.add(subscriber);
+    }
+
+    private void emitEvent(Pair<NewsEvent, News> event) {
+        for(ConsumerCallbackInterface subscriber : this.subscribers) {
+            subscriber.cb(event.getKey(), event.getValue());
+        }
+    }
 }
