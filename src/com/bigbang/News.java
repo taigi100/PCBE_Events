@@ -53,4 +53,15 @@ public class News {
     public void setAuthor(String author) {
         this.author = author;
     }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "domain='" + domain + '\'' +
+                ", subDomain='" + subDomain + '\'' +
+                ", firstPublished=" + firstPublished +
+                ", lastModified=" + lastModified +
+                ", author='" + author + '\'' +
+                '}';
+    }
 }
