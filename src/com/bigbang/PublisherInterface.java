@@ -1,7 +1,7 @@
 package com.bigbang;
 
+import javafx.util.Pair;
+
 public interface PublisherInterface {
-    void CreateNews(News x);
-    void UpdateNews(); // TODO: figure out how to tell what news to edit
-    void DeleteNews();
+    public void AddEvent(Event event);
 }
