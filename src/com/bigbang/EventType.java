@@ -1,6 +1,6 @@
 package com.bigbang;
 
-public enum NewsEvent { //TODO: Rename to EventType
+public enum EventType {
     NEWS_CREATED,
     NEWS_EDITTED,
     NEWS_DELETE,
