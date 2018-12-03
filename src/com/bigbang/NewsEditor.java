@@ -3,11 +3,12 @@ package com.bigbang;
 public class NewsEditor { // need a thread for pushing events in the bus
     private Thread sendMessagesHandler;
 
-    public NewsEditor(NewsBus nb) {
+    public NewsEditor(EventBus nb) {
         this.sendMessagesHandler = new Thread(() -> {
             while (true) {
                 try {
-                    nb.AddEvent(new Event(NewsEvent.NEWS_CREATED, new News("test", "John Doe")));
+                    News[] toAdd = new News[]{new News("test", "John Doe")};
+                    nb.AddEvent(new Event(EventType.NEWS_CREATED, toAdd));
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();

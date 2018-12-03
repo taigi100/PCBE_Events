@@ -2,8 +2,8 @@ package com.bigbang;
 
 import javafx.util.Pair;
 
-public class Event extends Pair<NewsEvent, News> {
-    public Event(NewsEvent event, News news) {
+public class Event extends Pair<EventType, News[]> {
+    public Event(EventType event, News[] news) {
         super(event, news);
     }
 }
