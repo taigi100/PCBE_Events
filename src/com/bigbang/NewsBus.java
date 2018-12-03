@@ -6,7 +6,7 @@ import java.util.List;
 
 public class NewsBus implements PublisherInterface {
 
-     List<Event> events;
+     List<Event> events; // TODO: Change to arraylist, keep the news only, and edit / work on them.
      ArrayList<ConsumerCallbackInterface> subscribers;
 
     public NewsBus() {
@@ -19,13 +19,12 @@ public class NewsBus implements PublisherInterface {
         this.emitEvent(this.events.get(this.events.size() - 1));
     }
 
-    private void UpdateNews() { //TODO: decide how you wanna do this, make it a list with aggregated events or literally
-        // edit the element in the list
+    private void UpdateNews() { //TODO: same as Delete, gets the new and the old news object and edits it
 
     }
 
 
-    private void DeleteNews() {
+    private void DeleteNews() { // TODO: send the news to be deleted with the event
 
     }
 
