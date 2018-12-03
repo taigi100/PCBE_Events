@@ -10,9 +10,27 @@ public class News {
     private Date lastModified;
     private String author;
 
+    public News(String domain) {
+        this.domain = domain;
+    }
+
     public News(String domain, String author) {
         this.domain = domain;
         this.author = author;
+    }
+
+    public News(String domain, String subDomain, String author) {
+        this.domain = domain;
+        this.subDomain = subDomain;
+        this.author = author;
+    }
+
+    public News(News another) {
+        this.domain = another.getDomain();
+        this.subDomain = another.getSubDomain();
+        this.author = another.getAuthor();
+        this.lastModified = another.getLastModified();
+        this.firstPublished = another.getFirstPublished();
     }
 
     public String getDomain() {

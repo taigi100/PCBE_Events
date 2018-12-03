@@ -29,6 +29,10 @@ public class EventBus implements PublisherInterface {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        News[] n = new News[2];
+        n[0] = oldNews;
+        n[1] = newNews;
+        this.emitEvent(new Event(EventType.NEWS_EDITTED, n));
     }
 
 
@@ -60,7 +64,9 @@ public class EventBus implements PublisherInterface {
 
     public void subscribe(EventType type, String chan, ConsumerCallbackInterface subscriber) {
         this.subscribers.add(new Triplet(type, chan, subscriber));
-        this.emitEvent(new Event(EventType.NEWS_READ, null));
+        if(type == EventType.NEWS_CREATED){
+            this.emitEvent(new Event(EventType.NEWS_READ, new News[]{new News(chan)}));
+        }
     }
 
     private void emitEvent(Event event) {
@@ -68,11 +74,16 @@ public class EventBus implements PublisherInterface {
             if (subscriber.getFirst().equals(event.getKey())) {
                 if(event.getValue() != null) {
                     for (News n : event.getValue()) {
+                        if (n == null) continue;
                         if (subscriber.getSecond().equals(n.getDomain()))
                             subscriber.getThird().cb(event.getKey(), event.getValue());
                     }
                 }
             }
         }
+    }
+
+    public List<News> getNews() {
+        return news;
     }
 }
